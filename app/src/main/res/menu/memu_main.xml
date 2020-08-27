@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_1"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="게시판" />
+
+    <item
+        android:id="@+id/action_2"
+        android:icon="@drawable/ic_baseline_star_24"
+        android:title="즐겨찾기" />
+
+    <item
+        android:id="@+id/action_3"
+        android:icon="@drawable/ic_baseline_note_24"
+        android:title="메모장" />
+
+    <item
+        android:id="@+id/action_4"
+        android:icon="@drawable/ic_baseline_more_horiz_24"
+        android:title="더보기" />
+</menu>
