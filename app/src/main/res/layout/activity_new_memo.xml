@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="25dp"
+        tools:context=".NewMemoActivity">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/apple_sd_gothic_neo_h"
+            android:text="@string/new_memotitle"
+            android:textColor="@color/materialGray7"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_create_24"
+            app:layout_constraintBottom_toBottomOf="@+id/textView1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/textView1"
+            app:layout_constraintTop_toTopOf="@+id/textView1"
+            app:tint="@color/materialGray7"
+            tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="300dp"
+            android:layout_height="500dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@android:color/white"
+            android:padding="28dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView1"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/apple_sd_gothic_neo_r"
+                android:text="@string/new_memo_title"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:fontFamily="@font/apple_sd_gothic_neo_r"
+                android:gravity="top"
+                android:hint="@string/new_memo_titlehint"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:ignore="Autofill,TextFields" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/apple_sd_gothic_neo_r"
+                android:text="@string/new_memo_subtitle"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:fontFamily="@font/apple_sd_gothic_neo_r"
+                android:gravity="top"
+                android:hint="@string/new_memo_subtitlehint"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                tools:ignore="Autofill,TextFields" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/apple_sd_gothic_neo_r"
+                android:text="@string/new_memo_maintext"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:backgroundTint="@android:color/white"
+                android:fontFamily="@font/apple_sd_gothic_neo_r"
+                android:gravity="top"
+                android:hint="@string/new_memo_maintexthint"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:ignore="Autofill,TextFields" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_box"
+            android:backgroundTint="#dce2f3"
+            android:padding="12dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:tint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:paddingHorizontal="70dp"
+            android:text="글 작성하기"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
