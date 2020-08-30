@@ -7,4 +7,6 @@
     <string name="new_memo_subtitlehint">아이디어를 한 줄로 소개해주세요.</string>
     <string name="new_memo_maintext">본문</string>
     <string name="new_memo_maintexthint">아이디어를 자세히 소개해주세요.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
