@@ -1,12 +1,25 @@
 <resources>
     <string name="app_name">Share Idea</string>
-    <string name="new_memotitle">아이디어 작성</string>
+
     <string name="new_memo_title">제목</string>
     <string name="new_memo_titlehint">제목을 작성해 주세요.</string>
     <string name="new_memo_subtitle">부제</string>
     <string name="new_memo_subtitlehint">아이디어를 한 줄로 소개해주세요.</string>
     <string name="new_memo_maintext">본문</string>
     <string name="new_memo_maintexthint">아이디어를 자세히 소개해주세요.</string>
+
+    <string name="new_memotitle">새로운 메모 작성</string>
+    <string name="new_memo_btn">메모 작성하기</string>
+
+    <string name="new_rememo_title">내 메모 작성</string>
+    <string name="new_rememo_btn">메모 수정하기</string>
+
+    <string name="new_idea_title">아이디어 작성</string>
+    <string name="new_idea_create">글 작성하기</string>
+
+    <string name="new_reidea_title">아이디어 수정</string>
+    <string name="new_reidea_create">글 수정하기</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

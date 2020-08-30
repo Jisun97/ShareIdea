@@ -1,7 +1,6 @@
 package com.example.shareidea;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.example.shareidea.databinding.FragmentMemoBinding;
+import com.example.shareidea.databinding.FragmentMoreBinding;
 
-public class MemoFragment extends Fragment {
+public class MoreFragment extends Fragment {
 
-    public static MemoFragment newInstance(){
-        return new MemoFragment();
+    public static MoreFragment newInstance(){
+        return new MoreFragment();
     }
 
     private Context mContext;
-    private FragmentMemoBinding binding;
+    private FragmentMoreBinding binding;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -30,11 +29,8 @@ public class MemoFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_memo, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_more, container, false);
 
-        binding.fabMemo.setOnClickListener(view -> {
-            startActivity(new Intent(mContext, NewMemo.class));
-        });
 
         return binding.getRoot();
     }

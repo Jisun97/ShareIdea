@@ -18,30 +18,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-            binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-            binding.bottomMain.setOnNavigationItemSelectedListener(item -> {
+        binding.bottomMain.setOnNavigationItemSelectedListener(item -> {
 
-                switch (item.getItemId()) {
-                    case R.id.action_1:
-                        break;
-                    case R.id.action_2:
-                        break;
-                    case R.id.action_3:
-                        break;
-                    case R.id.action_4:
-                        break;
-                }
+            switch (item.getItemId()) {
+                case R.id.action_1:
+                    switchFragment(ShareFragment.newInstance());
+                    break;
+                case R.id.action_2:
+                    switchFragment(StarFragment.newInstance());
+                    break;
+                case R.id.action_3:
+                    switchFragment(MemoFragment.newInstance());
+                    break;
+                case R.id.action_4:
+                    switchFragment(MoreFragment.newInstance());
+                    break;
+            }
 
-                return true;
-            });
-        }
+            return true;
+        });
 
-        private void switchFragment(Fragment fragment) {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frame_main, fragment);
-            transaction.commit();
-        }
+        switchFragment(ShareFragment.newInstance());
     }
 
+    private void switchFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_main, fragment);
+        transaction.commit();
+    }
 }

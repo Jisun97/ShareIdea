@@ -11,16 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.example.shareidea.databinding.FragmentMemoBinding;
+import com.example.shareidea.databinding.FragmentShareBinding;
 
-public class MemoFragment extends Fragment {
+public class ShareFragment extends Fragment {
 
-    public static MemoFragment newInstance(){
-        return new MemoFragment();
+    public static ShareFragment newInstance(){
+        return new ShareFragment();
     }
 
     private Context mContext;
-    private FragmentMemoBinding binding;
+    private FragmentShareBinding binding;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -30,10 +30,10 @@ public class MemoFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_memo, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_share, container, false);
 
-        binding.fabMemo.setOnClickListener(view -> {
-            startActivity(new Intent(mContext, NewMemo.class));
+        binding.fabShare.setOnClickListener(view -> {
+            startActivity(new Intent(mContext, NewShare.class));
         });
 
         return binding.getRoot();
