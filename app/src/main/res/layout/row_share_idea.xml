@@ -4,6 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="memo"
+            type="com.example.shareidea.MemoModel" />
+
+    </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/apple_sd_gothic_neo_r"
-            android:text="짱짱멋진아이디어"
+            android:text="@{memo.title, default=`title`}"
             android:textColor="@color/materialGray7"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/txt_row_memo_text"
@@ -42,22 +51,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/apple_sd_gothic_neo_r"
-            android:text="부제-어쩌구저쩌구이런거"
+            android:text="@{memo.sub, default=`sub title`}"
             android:textColor="@color/materialGray6"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="@+id/txt_row_memo_time"
             app:layout_constraintTop_toBottomOf="@+id/txt_row_memo_time" />
 
-        <ImageView
+        <CheckBox
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/ic_baseline_star_border_24"
+            android:button="@drawable/favorite_selector"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/colorPrimary" />
+            app:buttonTint="@color/colorPrimary" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
