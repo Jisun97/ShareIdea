@@ -1,51 +1,66 @@
 package com.example.shareidea;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.service.autofill.OnClickAction;
-import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
+import com.example.shareidea.databinding.ActivityLoginBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button loginbtn;
-    private Button singupbtn;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
+    private ActivityLoginBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        binding.setEmail("");
+        binding.setPw("");
 
-        View view = getWindow().getDecorView();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (view != null) {
-                view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-                getWindow().setStatusBarColor(Color.parseColor("#fbfbfb"));
-            }
+        getWindow().setStatusBarColor(Color.parseColor("#fbfbfb"));
+
+        binding.btnLoginSignin.setOnClickListener(view -> {
+            login(binding.getEmail(), binding.getPw());
+        });
+
+        binding.btnLoginSignup.setOnClickListener(view ->
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
+
+    }
+
+    private void login(String email, String pw) {
+
+        if (email.isEmpty() || pw.isEmpty()) {
+            Toast.makeText(this, "빈칸을 입력해주세요", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        loginbtn = (Button) findViewById(R.id.btn_login_signin);
-        singupbtn = (Button) findViewById(R.id.btn_login_signup);
-
-        loginbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            }
-        });
-
-        singupbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-            }
-        });
+        firebaseFirestore
+                .collection("users")
+                .document(email)
+                .get()
+                .addOnSuccessListener(document -> {
+                    firebaseAuth
+                            .signInWithEmailAndPassword(email, pw)
+                            .addOnSuccessListener(runnable1 -> {
+                                UserCache.setUser(this, document.toObject(UserModel.class));
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
+                            })
+                            .addOnFailureListener(e ->
+                                    Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
+                })
+                .addOnFailureListener(e -> Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
 
     }
 }

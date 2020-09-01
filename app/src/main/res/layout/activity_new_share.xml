@@ -4,6 +4,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="activity"
+            type="com.example.shareidea.NewShare" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="sub"
+            type="String" />
+
+        <variable
+            name="text"
+            type="String" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

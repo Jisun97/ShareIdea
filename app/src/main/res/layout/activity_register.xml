@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="email"
+            type="String" />
+
+        <variable
+            name="pw"
+            type="String" />
+
+        <variable
+            name="pwcheck"
+            type="String" />
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -54,6 +73,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
+                    android:text="@={name}"
                     android:id="@+id/edt_register_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -94,6 +114,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
+                    android:text="@={email}"
                     android:id="@+id/edt_register_pw"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -135,6 +156,8 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
+                    android:inputType="textPassword"
+                    android:text="@={pw}"
                     android:id="@+id/edt_login_pw"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -175,6 +198,8 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
+                    android:inputType="textPassword"
+                    android:text="@={pwcheck}"
                     android:id="@+id/edt_register_check"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
